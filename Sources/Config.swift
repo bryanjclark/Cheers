@@ -44,6 +44,10 @@ public struct Config {
   /// This can be any value between 0.0 and 1.0 — see the documentation for `CAEmitterCell().redRange` for more information.
   public var colorRange: Float = 0.8
 
+  /// Adjusts the birth rate (aka "density") of the confetti.
+  /// Any value larger than 0 is accepted; default is 20.
+  public var birthRate: Float = 20
+
   /// Customize the cells
   public var customize: (([CAEmitterCell]) -> Void)?
 

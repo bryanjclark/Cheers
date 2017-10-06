@@ -29,9 +29,15 @@ public class CheerView: UIView {
       and: pickImages()
     )
 
+    let birthRate = max(0, config.birthRate)
+
     let cells: [CAEmitterCell] = combinations.reduce([]) { (accum, combination) in
       let cell = CAEmitterCell()
-      cell.birthRate = 20
+
+      // Dividing by combinations.count ensures that the confetti density
+      // remains constant, even when you vary the number of colors or shapes.
+      cell.birthRate = birthRate / Float(combinations.count)
+
       cell.lifetime = 20.0
       cell.lifetimeRange = 10
       cell.velocity = 250
